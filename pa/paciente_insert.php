@@ -4,7 +4,7 @@
 	$txt = json_encode($obj);
 
 	// valida procurado
-	$curl=curl_init("http://localhost:8085/servico.php");
+	$curl=curl_init("http://localhost:8089/servico.php");
 	curl_setopt($curl, CURLOPT_POSTFIELDS ,$txt);
 	curl_setopt($curl, CURLOPT_HTTPHEADER ,['application/json']);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
@@ -12,13 +12,13 @@
 	$obj= json_decode($txt,true);
 	if($obj['status']=='procurado'){
 		print 'Procurado!! Chame a polícia!!';
-		print '<style>body{background-color:navy} </style>';
+		print '<style>body{background-color:orange;color:white;} </style>';
 	}
 
 	//valida cpf
 	$obj = ["cpf"=>$cpf];
 	$txt = json_encode($obj);
-	$curl=curl_init("http://localhost:8089/servico.php"); 
+	$curl=curl_init("http://localhost:8088/servico.php"); 
 	curl_setopt($curl, CURLOPT_POSTFIELDS ,$txt);
 	curl_setopt($curl, CURLOPT_HTTPHEADER ,['application/json']);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
@@ -26,10 +26,10 @@
 	
 	$obj= json_decode($txt,true);
 	if(!$obj['status']){
-		print $txt;
+		//print $txt;
 		print 'CPF Inválido!!!!';
 		print 'Usuário não foi cadastrado!!';
-		print '<style>body{background-color:orange} </style>';
+		print '<style>body{background-color:red; color:white;} </style>';
 		print '<script>window.setTimeout(function(){window.location=\'/paciente_cadastro.php\';}, 2000);</script>';
 	}else{
 		$conexao = new pdo('sqlite:bancodedados.data');
