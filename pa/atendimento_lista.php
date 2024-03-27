@@ -36,6 +36,9 @@
 				<td><?php print $tupla['idade']; ?></td>
 				<td><?php print $tupla['avaliacao']; ?></td>
 				<td><a href="/atendimento_cadastro.php?id=<?php print $tupla['id']; ?>">Atender</a></td>
+				<td><a href="paciente_historico.php?documento=<?php 
+						print $tupla['documento']; 
+					?>">Ver Histórico</a></td>
 			</tr>
 <?php
 		}
