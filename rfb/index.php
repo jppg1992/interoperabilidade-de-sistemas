@@ -8,10 +8,18 @@
 
 	if ( isset($_REQUEST['documento']) ) {
 		include 'funcoes.php';
-		if (valida($_REQUEST['documento'])) {
+		if (validaCpf($_REQUEST['documento'])) {
 			print $_REQUEST['documento'] . ' é um CPF válido.';
 		} else {
 			print $_REQUEST['documento'] . ' não é um CPF válido.';
 		}
+
+		if (validaCnpj($_REQUEST['documento'])) {
+			print $_REQUEST['documento'] . ' é um CNPJ válido.';
+		} else {
+			print $_REQUEST['documento'] . ' não é um CNPJ válido.';
+		}
+
+
 	}
 

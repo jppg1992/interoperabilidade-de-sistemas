@@ -2,9 +2,17 @@
     $txt = file_get_contents('php://input');
     $obj = json_decode($txt,true);
     //["cpf":"12345678901"]
-$cpf =  $obj['cpf'];
+$entrada =  $obj['entrada'];
 include 'funcoes.php'; 
-$obj = ["status"=>valida($cpf)];
+$obj = ["status"=>"INVALIDO"];
+
+if (validaCpf($entrada)){
+    $obj = ["status"=>"CPF"];
+}
+elseif (validaCnpj($entrada)){
+    $obj = ["status"=>"CNPJ"];
+}
+
 $txt = json_encode($obj);
 print $txt;
 ?>
