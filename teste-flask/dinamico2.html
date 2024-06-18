@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlaskAPP</title>
+</head>
+<body>
+    <p>Estes dados vem do BD</p>
+    <table border="2" >
+        <thead>
+            <tr>
+                <th><b>CPF</b> </th>
+                <th><b>NOME</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for linha in dados %}
+            <tr>
+                <td>{{ linha[0] }}</td>
+                <td>{{ linha[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
