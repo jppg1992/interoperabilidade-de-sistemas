@@ -3,7 +3,7 @@
     $obj = json_decode($txt,true); 
     $idImage = $obj['id']; 
     
-    $sql = "select * from image where id_img = '".$idImage."';";
+    $sql = "select * from image where id = '".$idImage."';";
 
 	$conexao = new pdo ('sqlite:banco');
 	 

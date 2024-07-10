@@ -5,14 +5,16 @@
     $idImage = $obj['idImage'];
     $descr = $obj['descricao'];
     
-    $sql = "insert into image values (null,'".$idImage."','".$descr."','".$image."');";
+    $sql = "insert into image values (null,'".$idImage."','".$descr."','".$image."') returning id;";
 
 	$conexao = new pdo ('sqlite:banco');
 	 
-    $resultado = $conexao->exec($sql);
+    $resultado = $conexao->query($sql)->fetchAll(2);
 
-    if ($resultado){
-        $obj = ["status"=>"Sucesso"];
+    $id = $resultado[0]['id'];
+
+    if ($id){
+        $obj = ["status"=>"Sucesso","id"=>$id];
         $txt = json_encode($obj);
         print $txt;
     } else {
@@ -21,5 +23,5 @@
         print $txt;
     }
    
-    print $txt;
+     
 ?>
