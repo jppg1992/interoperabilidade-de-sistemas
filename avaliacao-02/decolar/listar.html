@@ -15,7 +15,18 @@
 				<th> DESTINO   </th>
 				<th> DATA</th>
 			</tr>
-			{% for tupla in resultado %}
+			{% for tupla in listaGol %}
+				<tr>
+					<td> {{tupla['id']}} </td>
+					<td> {{tupla['voo']}} </td>
+					<td> {{tupla['aviao']}} </td>
+					<td> {{tupla['origem']}} </td>
+					<td> {{tupla['destino']}} </td>
+					<td> {{tupla['datahora']}} </td>
+					<td> <a href="/comprar?id={{tupla['id']}}&voo={{tupla['voo']}}">comprar</a></td>
+				<tr>
+			{% endfor %}
+			{% for tupla in listaLatam %}
 				<tr>
 					<td> {{tupla['id']}} </td>
 					<td> {{tupla['voo']}} </td>
