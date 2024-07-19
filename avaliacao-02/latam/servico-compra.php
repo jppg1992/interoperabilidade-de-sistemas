@@ -18,7 +18,7 @@
     $idCliente = $resultado[0]['id'];
   }else{
     $sql = "insert into cliente values (null,'".$cpf."','".$nome."') returning id;";
-    $result = $conexao->query($sql)->fetcAll(2);
+    $result = $conexao->query($sql)->fetchAll(2);
     $idCliente = $result[0]['id'];
   }
 
@@ -29,11 +29,14 @@
   $result= $conexao->query($insert)->fetchAll(2);
   $idPssageiro = $result[0]['id'];
   if ( $idPssageiro > 0 ){
-    $resultado = ["status" => "sucesso", "passagem" =>$idPssageiro ];
+    $resultado = ["status"=>"sucesso", "passagem" => $idPssageiro];
+    $txt = json_encode( $resultado );
+    print $txt;
   } else {
     $resultado = ["status"=>"erro"];
+    $txt = json_encode( $resultado );
+    print $txt;
   };
   
-  $txt = json_encode( $resultado );
-  print $txt;
+
 ?>

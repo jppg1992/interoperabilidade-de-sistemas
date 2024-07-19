@@ -43,18 +43,19 @@ def confirmar ():
 		nome   = request.values.get('nome')
 		id   = request.values.get('id')
 		voo   = request.values.get('voo')
-		print(cpf,nome,id,voo)
-
+		 
 	
-		if "GOL" in voo:
+		if voo.find('Gol') >=0:
 			urlTxt = URL_BASE_GOL+"/servico-compra.php"
 		else:
 			urlTxt = URL_BASE_LATAM+"/servico-compra.php"
+		
 		txt = json.dumps({"id":id,"cpf":cpf,"nome":nome}) 
 		resp = requests.post(url=urlTxt,data=txt)
 		txt = resp.content
-	 
+		 
 		resultado = json.loads(txt)
+	 
 		return render_template('confirmar.html',resultado=resultado)
 	return render_template('confirmar.html')
 @app.route('/', methods=['GET', 'POST'])

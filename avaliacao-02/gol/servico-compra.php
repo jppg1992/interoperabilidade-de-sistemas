@@ -22,17 +22,20 @@
     $idCliente = $result[0]['id'];
   }
 
-  var_dump($idCliente);
+ 
   #incluir compra do voo
   $insert = "insert into passageiro values (null,'".$id ."','".$idCliente."') returning id;";
-  $result= $conexao->query($insert)->fetcAll(2);
+  $result= $conexao->query($insert)->fetchAll(2);
   $idPssageiro = $result[0]['id'];
   if ( $idPssageiro > 0 ){
     $resultado = ["status" => "sucesso", "passagem" =>$idPssageiro ];
+    $txt = json_encode( $resultado );
+  print $txt;
   } else {
     $resultado = ["status"=>"erro"];
+    $txt = json_encode( $resultado );
+  print $txt;
   };
   
-  $txt = json_encode( $resultado );
-  print $txt;
+  
 ?>

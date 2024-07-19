@@ -14,6 +14,7 @@
 				<th> ORIGEM     </th>
 				<th> DESTINO   </th>
 				<th> DATA</th>
+				<th> PREÇO</th>
 			</tr>
 			{% for tupla in listaGol %}
 				<tr>
@@ -23,6 +24,8 @@
 					<td> {{tupla['origem']}} </td>
 					<td> {{tupla['destino']}} </td>
 					<td> {{tupla['datahora']}} </td>
+					<td> {{tupla['preco']}}
+					</td>
 					<td> <a href="/comprar?id={{tupla['id']}}&voo={{tupla['voo']}}">comprar</a></td>
 				<tr>
 			{% endfor %}
@@ -34,6 +37,8 @@
 					<td> {{tupla['origem']}} </td>
 					<td> {{tupla['destino']}} </td>
 					<td> {{tupla['datahora']}} </td>
+					<td> {{tupla['preco']}}
+					</td>
 					<td> <a href="/comprar?id={{tupla['id']}}&voo={{tupla['voo']}}">comprar</a></td>
 				<tr>
 			{% endfor %}
